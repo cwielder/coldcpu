@@ -647,9 +647,10 @@ void cold::Processor::handleLDB(const cold::Instruction& instr) {
     // byte 0: 0x2D
     // byte 1: output reg
     // byte 2: addr reg
-    // byte 3: offset
+    // byte 3: offset (signed)
 
-    const auto [outReg, addrReg, offset] = instr.getTripleByteData();
+    const auto [outReg, addrReg, offsetUnsigned] = instr.getTripleByteData();
+    const s8 offset = offsetUnsigned;
 
     mRegisters.gpr[outReg] = mMemory->readRW(mRegisters.gpr[addrReg] + offset);
 }
@@ -658,9 +659,10 @@ void cold::Processor::handleLDH(const cold::Instruction& instr) {
     // byte 0: 0x2E
     // byte 1: output reg
     // byte 2: addr reg
-    // byte 3: offset
+    // byte 3: offset (signed)
 
-    const auto [outReg, addrReg, offset] = instr.getTripleByteData();
+    const auto [outReg, addrReg, offsetUnsigned] = instr.getTripleByteData();
+    const s8 offset = offsetUnsigned;
 
     const u8 readByte1 = mMemory->readRW(mRegisters.gpr[addrReg] + offset);
     const u8 readByte2 = mMemory->readRW(mRegisters.gpr[addrReg] + offset + 1);
@@ -672,9 +674,10 @@ void cold::Processor::handleLDW(const cold::Instruction& instr) {
     // byte 0: 0x2F
     // byte 1: output reg
     // byte 2: addr reg
-    // byte 3: offset
+    // byte 3: offset (signed)
 
-    const auto [outReg, addrReg, offset] = instr.getTripleByteData();
+    const auto [outReg, addrReg, offsetUnsigned] = instr.getTripleByteData();
+    const s8 offset = offsetUnsigned;
 
     const u8 readByte1 = mMemory->readRW(mRegisters.gpr[addrReg] + offset);
     const u8 readByte2 = mMemory->readRW(mRegisters.gpr[addrReg] + offset + 1);
@@ -688,9 +691,11 @@ void cold::Processor::handleSTB(const cold::Instruction& instr) {
     // byte 0: 0x30
     // byte 1: input reg
     // byte 2: addr reg
-    // byte 3: offset
+    // byte 3: offset (signed)
 
-    const auto [inReg, addrReg, offset] = instr.getTripleByteData();
+    const auto [inReg, addrReg, offsetUnsigned] = instr.getTripleByteData();
+    const u32 inRegu = mRegisters.gpr[inReg];
+    const s8 offset = offsetUnsigned;
 
     mMemory->readRW(mRegisters.gpr[addrReg] + offset) = mRegisters.gpr[inReg] & 0xFF;
 }
@@ -699,11 +704,11 @@ void cold::Processor::handleSTH(const cold::Instruction& instr) {
     // byte 0: 0x31
     // byte 1: input reg
     // byte 2: addr reg
-    // byte 3: offset
+    // byte 3: offset (signed)
 
-    const auto [inReg, addrReg, offset] = instr.getTripleByteData();
-
-    const u16 inRegu = mRegisters.gpr[inReg] & 0xFFFF;
+    const auto [inReg, addrReg, offsetUnsigned] = instr.getTripleByteData();
+    const u32 inRegu = mRegisters.gpr[inReg];
+    const s8 offset = offsetUnsigned;
 
     mMemory->readRW(mRegisters.gpr[addrReg] + offset) = inRegu >> 8 & 0xFF;
     mMemory->readRW(mRegisters.gpr[addrReg] + offset + 1) = inRegu & 0xFF;
@@ -713,11 +718,11 @@ void cold::Processor::handleSTW(const cold::Instruction& instr) {
     // byte 0: 0x32
     // byte 1: input reg
     // byte 2: addr reg
-    // byte 3: offset
+    // byte 3: offset (signed)
 
-    const auto [inReg, addrReg, offset] = instr.getTripleByteData();
-
+    const auto [inReg, addrReg, offsetUnsigned] = instr.getTripleByteData();
     const u32 inRegu = mRegisters.gpr[inReg];
+    const s8 offset = offsetUnsigned;
 
     mMemory->readRW(mRegisters.gpr[addrReg] + offset) = inRegu >> 24 & 0xFF;
     mMemory->readRW(mRegisters.gpr[addrReg] + offset + 1) = inRegu >> 16 & 0xFF;

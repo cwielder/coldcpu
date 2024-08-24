@@ -6,7 +6,7 @@ namespace cold {
 
     class Instruction {
     public:
-        enum class Type : u8 { // This is used as an index into a PTMF array in cold::CPU
+        enum class Type : u8 { // This is used as an index into a PTMF array in cold::Processor
             SETI,
             
             SYSCALL,
