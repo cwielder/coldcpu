@@ -64,7 +64,8 @@ const cold::Processor::InstructionHandler cold::Processor::sInstructionHandlers[
     &Processor::handleSTH,
     &Processor::handleSTW,
     &Processor::handleMFLR,
-    &Processor::handleMTLR
+    &Processor::handleMTLR,
+    &Processor::handleSET
 };
 
 // note: byte 0 is always the instruction type
@@ -750,3 +751,13 @@ void cold::Processor::handleMTLR(const cold::Instruction& instr) {
     mRegisters.lr = mRegisters.gpr[inReg];
 }
 
+void cold::Processor::handleSET(const cold::Instruction& instr) {
+    // byte 0: 0x35
+    // byte 1: output reg
+    // byte 2: input reg
+    // byte 3: unused
+
+    const auto [outReg, inReg, _] = instr.getTripleByteData();
+
+    mRegisters.gpr[outReg] = mRegisters.gpr[inReg];
+}

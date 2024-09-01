@@ -128,6 +128,7 @@ namespace cold {
         void handleSTW(const cold::Instruction& instr);
         void handleMFLR(const cold::Instruction& instr);
         void handleMTLR(const cold::Instruction& instr);
+        void handleSET(const cold::Instruction& instr);
 
     private:
         Registers mRegisters;

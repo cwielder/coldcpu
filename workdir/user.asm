@@ -6,8 +6,7 @@ Fibonacci:
     STW r0, r0, -24
     SUBI r0, r0, 24
     STW r31, r0, 12
-    XOR r31, r31, r31
-    OR r31, r3, r3
+    SET r31, r3
     CMPI r3, 1
     BLE Exit
     MFLR r1
@@ -15,8 +14,7 @@ Fibonacci:
     STW r30, r0, 8
     SUBI r3, r3, 1
     BL Fibonacci
-    XOR r30, r30, r30
-    OR r30, r3, r3
+    SET r30, r3
     SUBI r3, r31, 2
     BL Fibonacci
     ADD r3, r30, r3

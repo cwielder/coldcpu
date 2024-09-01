@@ -76,6 +76,7 @@ namespace cold::assembly {
         void compileBNELR(std::vector<u8>& out, ParameterStream line);
         void compileMFLR(std::vector<u8>& out, ParameterStream line);
         void compileMTLR(std::vector<u8>& out, ParameterStream line);
+        void compileSET(std::vector<u8>& out, ParameterStream line);
 
         // Helper functions
         void compileEmpty(std::vector<u8>& out, const cold::Instruction::Type opcode);

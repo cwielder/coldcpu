@@ -101,7 +101,8 @@ const std::unordered_map<std::string, coldasm::Assembler::AssemblerFunc> coldasm
     { "BEQLR", &coldasm::Assembler::compileBEQLR },
     { "BNELR", &coldasm::Assembler::compileBNELR },
     { "MFLR", &coldasm::Assembler::compileMFLR },
-    { "MTLR", &coldasm::Assembler::compileMTLR }
+    { "MTLR", &coldasm::Assembler::compileMTLR },
+    { "SET", &coldasm::Assembler::compileSET }
 };
 
 // Helper functions
@@ -424,3 +425,6 @@ void coldasm::Assembler::compileMTLR(std::vector<u8>& out, ParameterStream line)
     this->compileSingleReg(out, line, cold::Instruction::Type::MTLR);
 }
 
+void coldasm::Assembler::compileSET(std::vector<u8>& out, ParameterStream line) {
+    this->compileDoubleReg(out, line, cold::Instruction::Type::SET);
+}

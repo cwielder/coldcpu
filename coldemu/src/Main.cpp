@@ -27,7 +27,7 @@ void startProgram(const std::string& path, const u32 memorySize) {
 }
 
 int main() {
-    const std::string path = "fibonacci.cold";
+    const std::string path = "user.cold";
     const u32 memorySize = 1024; // 1KB
 
     startProgram(path, memorySize);
