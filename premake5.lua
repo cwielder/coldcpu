@@ -7,3 +7,4 @@ workspace "coldlang"
 outputdir = "%{cfg.system}-%{cfg.architecture}-%{cfg.buildcfg}"
 
 include "coldemu"
+include "coldasm"
