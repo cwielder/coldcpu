@@ -409,6 +409,8 @@ void cold::Processor::handleFCMP(const cold::Instruction& instr) {
     // byte 2: in reg 2
     // byte 3: unused
 
+    mRegisters.cr = 0;
+
     const auto [inReg1, inReg2, _] = instr.getTripleByteData();
 
     const f32 inReg1f = *reinterpret_cast<f32*>(&mRegisters.gpr[inReg1]);
