@@ -97,6 +97,14 @@ namespace cold {
             };
         }
 
+        [[nodiscard]] s32 getS24Data() const {
+            s32 data = mData & 0xFFFFFF;
+            if (data & 0x800000) {
+                data |= 0xFF000000;
+            }
+            return data;
+        }
+
     private:
         u32 mData;
     };
