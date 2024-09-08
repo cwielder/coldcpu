@@ -12,7 +12,10 @@
 </div>
 
 # Overview
+**ColdCPU** is a custom-made fictional processor architecture and assembly language written in C++ with a toolchain for compiling, cross-platform emulation, and disassembly. It features turing-completeness with support for arithmetic, floating-point, bitwise operations, conditional control flow, and memory load/store using a protected memory model.
 
 # Usage
+See the documentation for usage of each of the programs provided by the toolchain in the [wiki](https://github.com/cwielder/coldcpu/wiki).
 
 # Building
+This project is built upon the Premake5 metabuild system, meaning that it can compile using native build systems depending on the host. Currently, Windows and Linux are supported, and build systems for Visual Studio and GNU Make can be generated for each respectively by running the corresponding setup script found in the `scripts` directory at the root of the repository.
