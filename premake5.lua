@@ -1,5 +1,5 @@
 -- premake5.lua
-workspace "coldlang"
+workspace "coldcpu"
     architecture "x64"
     configurations { "Debug", "Release",  }
     startproject "coldemu"
