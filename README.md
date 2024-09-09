@@ -12,46 +12,38 @@
 </div>
 
 # ❄️ Overview
-**ColdCPU** is a custom-made fictional processor architecture and assembly language written in C++ with a toolchain for compiling, cross-platform emulation, and disassembly. It features turing-completeness with support for arithmetic, floating-point, bitwise operations, conditional control flow, and memory load/store using a protected memory model.
+**ColdCPU** is a custom-made fictional processor architecture and assembly language written in C++. It offers a comprehensive toolchain for compiling, cross-platform emulation, and disassembly.
+
+# ✔️ Features
+* Turing Completeness: Supports arithmetic, floating-point and bitwise operations.
+* Control Flow: Conditional branching for complex program logic.
+* Memory Operations: Secure memory model with fast load/store instructions.
+* Clean & Simple: ColdCPU provides an educational reference designed to explore low-level architecture concepts and enhance understanding of basic processor functionality.
+* Examples: Several examples of programs written in the `cold` assembly language have been provided in the [workdir](https://github.com/cwielder/coldcpu/tree/main/workdir) folder of this repository.
 
 # 📚 Usage
 ## Assembler
 ```
 Usage: coldasm --input PATH --output PATH
-
-Arguments:
-  -h, --help     shows help message and exits
-  -v, --version  prints version information and exits
-  -i, --input    input file [required]
-  -o, --output   output file [required]
 ```
 
 ## Emulator
 ```
-Usage: coldasm --input PATH --output PATH
+Usage: coldemu --path PATH [--memory VAR]
 
-Arguments:
-  -h, --help     shows help message and exits
-  -v, --version  prints version information and exits
-  -i, --input    input file [required]
-  -o, --output   output file [required]
+Optional arguments:
+  -m, --memory   memory size in bytes [default: 1024]
 ```
 
 ## Disassembler
 ```
 Usage: colddsm --input PATH --output PATH
-
-Optional arguments:
-  -h, --help     shows help message and exits
-  -v, --version  prints version information and exits
-  -i, --input    input file [required]
-  -o, --output   output file [required]
 ```
 
-### See the documentation for more detailed information about the programs provided by the toolchain in the [wiki](https://github.com/cwielder/coldcpu/wiki).
+### See the documentation for more detailed information about the processor and toolchain in the [wiki](https://github.com/cwielder/coldcpu/wiki).
 
 # 🔨 Building
-This project is built upon the Premake5 metabuild system, meaning that it can compile using native build systems depending on the host. Currently, Windows and Linux are supported, and build systems for Visual Studio and GNU Make can be generated for each respectively by running the corresponding setup script found in the `scripts` directory at the root of the repository.
+This project is built upon the [Premake5](https://premake.github.io/) metabuild system, meaning that it can compile using native build systems depending on the host. Currently, Windows and Linux are supported, and build systems for Visual Studio and GNU Make can be generated for each respectively by running the corresponding setup script found in the `scripts` directory at the root of the repository.
 
 # 📃 License
 All code in the `coldcpu` repository has been made available under the [MIT License](https://github.com/cwielder/coldcpu/blob/main/LICENSE.txt).
