@@ -45,5 +45,22 @@ Usage: colddsm --input PATH --output PATH
 # 🔨 Building
 This project is built upon the [Premake5](https://premake.github.io/) metabuild system, meaning that it can compile using native build systems depending on the host. Currently, Windows and Linux are supported, and build systems for Visual Studio and GNU Make can be generated for each respectively by running the corresponding setup script found in the `scripts` directory at the root of the repository.
 
+## Steps
+* Clone the repository:
+```
+git clone https://github.com/cwielder/coldcpu.git
+cd coldcpu
+```
+* Generate build files:
+  * Windows (Visual Studio):
+    ```
+    "./scripts/setupVS.bat"
+    ```
+    Open the resulting `coldcpu.sln` file in Visual Studio 2022+
+  * Linux (GNU Make):
+    ```
+    "./scripts/setupMake"
+    make
+    ```
 # 📃 License
 All code in the `coldcpu` repository has been made available under the [MIT License](https://github.com/cwielder/coldcpu/blob/main/LICENSE.txt).
