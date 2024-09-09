@@ -11,7 +11,10 @@ project "colddsm"
 
     includedirs {
         "include",
-        "../coldemu/include"
+        "../coldemu/include",
+
+        -- Libraries
+        "../vendor/argparse/include"
     }
 
     files {

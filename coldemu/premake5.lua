@@ -15,6 +15,9 @@ project "coldemu"
 
     includedirs {
         "include",
+        
+        -- Libraries
+        "../vendor/argparse/include"
     }
 
     files {
